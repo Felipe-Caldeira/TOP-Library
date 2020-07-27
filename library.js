@@ -1,4 +1,6 @@
-let myLibrary = localStorage.getObj("myLibrary") || [];
+let myLibrary = localStorage.getObj("myLibrary").map(book => {
+    return new Book(book.title, book.author, book.pages, book.readStatus);
+}) || [];
 
 // Book object and method
 function Book(title, author, pages, readStatus) {
@@ -31,12 +33,20 @@ function renderLibrary() {
     for (i = 0; i < myLibrary.length; i++) {
         book = myLibrary[i];
         entryTemplate = `
-             <li class="book" data-id="${i}"><span>${book.title}</span><span>${book.author}</span><span>${book.pages}</span><span>${book.readStatus}</span><span class="trashIcon"></span></li>
+             <li class="book" data-id="${i}"><span>${book.title}</span><span>${book.author}</span><span>${book.pages}</span>
+             <span><select class="bookListReadStatus">
+                <option value="Read">Have read</option>
+                <option value="Unread">Have not read</option>
+                <option value="Reading">Currently reading</option>
+             </select></span>
+             <span class="trashIcon"></span>
+             </li>
             `
         bookList.innerHTML += entryTemplate;
     }
 
     // Append trash icon and respective event listener to each book listing
+    // Also add selected Read Status value
     document.querySelectorAll(".trashIcon").forEach(span => {
         span.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="48" height="48" viewBox="0 0 24 24" stroke-width="1.5" stroke="#33272a" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
@@ -51,7 +61,17 @@ function renderLibrary() {
             span.parentElement.style.opacity = "0";
             setTimeout(() => {
                 removeBookFromLibrary(span.parentElement.getAttribute("data-id"));
-            }, 600);   
+            }, 600);
+        })
+
+        span.parentElement.querySelector(`option[value="${myLibrary[span.parentElement.getAttribute("data-id")].readStatus}"]`).selected = true;
+    })
+
+    // Add event listeners for updating book read status
+    document.querySelectorAll(".bookListReadStatus").forEach(select => {
+        select.addEventListener("change", e => {
+            myLibrary[select.parentElement.parentElement.getAttribute("data-id")].updateReadStatus(select.value);
+            saveData();
         })
     })
 
@@ -80,7 +100,7 @@ function submitForm() {
 
     // Reset form
     document.querySelector(".bookForm").reset();
-    
+
 }
 
 // Save data

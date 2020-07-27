@@ -14,7 +14,7 @@ html {
     padding: 3rem;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 10rem) auto;
+    grid-template-rows: repeat(2, 7.5rem) auto;
     justify-items: left;
     align-items: center;
     box-shadow: 0px 0px 20px 0px rgb(182, 182, 182);
@@ -61,7 +61,7 @@ button:focus {
     height: .2rem;
     background-color: #33272a;
     position: absolute;
-    top: 20.5rem;
+    top: 17rem;
     left: 3rem;
 }
 
@@ -80,6 +80,7 @@ button:focus {
     border-bottom: solid 1px #33272a;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    align-items: center;
     padding: 1rem 0;
     position: relative;
     opacity: 1;
@@ -87,7 +88,16 @@ button:focus {
 }
 
 .book span {
-    padding: 0 2rem;
+    padding: 0 1rem;
+}
+
+.bookListReadStatus {
+    font-size: inherit;
+    margin: 0;
+    border: none;
+    padding: 0;
+    width: fit-content;
+    cursor: pointer;
 }
 
 .trashIcon {
@@ -95,6 +105,8 @@ button:focus {
     right: 0;
     padding: 0 !important;
     margin: 1rem 3rem;
+    display: flex;
+    align-items: center;
 }
 
 .trashIcon svg {
