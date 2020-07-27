@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <title>Library</title>
+</head>
+
+<body>
+    <div class="mainContainer">
+        <h1>Library</h1>
+        <button class="addBook">Add Book</button>
+        <h2 class="bookDetail">Title</h2>
+        <h2 class="bookDetail">Author</h2>
+        <h2 class="bookDetail">Pages</h2>
+        <h2 class="bookDetail">Read Status</h2>
+        <div class="bookDetailUnderline"></div>
+
+        <ul class="bookList">
+        </ul>
+    </div>
+    <div class="bookFormContainer">
+        <form class="bookForm">
+            <h1>New Book</h1><span class="bookForm_close">×</span>
+            <label for="bookTitle">Title
+                <input required name="bookTitle" type="text" autocomplete="off" placeholder="Enter book title">
+            </label>
+            <label for="bookAuthor">Author
+                <input required name="bookAuthor" type="text" autocomplete="off" placeholder="Enter book author">
+            </label>
+            <label for="bookPages">Pages
+                <input required name="bookPages" type="number" autocomplete="off" min="0" placeholder="Enter number of pages">
+            </label>
+            <label for="bookStatus">Read status
+                <select name="bookStatus">
+                    <option value="Read">Have read</option>
+                    <option value="Unread">Have not read</option>
+                    <option value="Reading">Currently reading</option>
+                </select>
+            </label>
+            <button class="bookForm_submit" type="submit">Submit</button>
+
+        </form>
+    </div>
+
+    <script src="localStorageHelper.js"></script>
+    <script src="library.js"></script>
+</body>
+
+</html>

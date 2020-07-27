@@ -1,0 +1,188 @@
+html {
+    font-size: 8px;
+    font-family: 'Roboto Mono', monospace;
+    color: #594a4e;
+    background-color: #fffffe;
+}
+
+/* Main container */
+.mainContainer {
+    position: relative;
+    background-color: #faeee7;
+    width: 120rem;
+    margin: 10rem auto;
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 10rem) auto;
+    justify-items: left;
+    align-items: center;
+    box-shadow: 0px 0px 20px 0px rgb(182, 182, 182);
+}
+
+h1 {
+    font-size: 4rem;
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+/* Add book button */
+button {
+    border: none;
+    background-color: #ff8ba7;
+    color: #33272a;
+    padding: 1.5rem;
+    font-size: 3rem;
+    font-weight: 700;
+    grid-area: 1 / 4 / 2 / 5;
+    justify-self: center;
+}
+
+button:hover {
+    background-color: #fc9cb2;
+}
+
+button:active {
+    background-color: #ff8ba7;
+}
+
+button:focus {
+    outline: 0;
+}
+
+/* Actual book list */
+.bookDetail {
+    grid-row: 2 / 3;
+    font-size: 1.8rem;
+    padding-left: 1rem;
+}
+
+.bookDetailUnderline {
+    width: 120rem;
+    height: .2rem;
+    background-color: #33272a;
+    position: absolute;
+    top: 20.5rem;
+    left: 3rem;
+}
+
+.bookList {
+    grid-area: 3 / 1 / 4 / 5;
+    font-size: 1.5rem;
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    max-height: 40rem;
+    overflow-y: overlay;
+}
+
+.book {
+    border-bottom: solid 1px #33272a;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 1rem 0;
+    position: relative;
+    opacity: 1;
+    transition: opacity .6s;
+}
+
+.book span {
+    padding: 0 2rem;
+}
+
+.trashIcon {
+    position: absolute;
+    right: 0;
+    padding: 0 !important;
+    margin: 1rem 2rem;
+}
+
+.trashIcon svg {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    transition: transform .2s;
+}
+.trashIcon svg:hover {
+    transform: scale(1.3);
+}
+
+/* New book form */
+.bookFormContainer {
+    width: 100%;
+    height: 0px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    background-color: rgba(65, 65, 65, 0.3);
+    overflow: hidden;
+    transition: all .4s;
+}
+
+.bookForm {
+    width: 60rem;
+    height: 55rem;
+    margin-top: 20rem;
+    background-color: #fffffe;
+    padding: 5rem;
+    display: grid;
+    grid-template-rows: 9rem repeat(4, 10rem);
+}
+
+.bookForm h1 {
+    margin: 0;
+    border-bottom: solid 2px black;
+    margin-bottom: 2rem;
+}
+
+.bookForm_close {
+    grid-area: 1 / 1 / 2 / 2;
+    justify-self: right;
+    font-size: 4rem;
+    margin-right: 1rem;
+    color: #33272a67;
+    height: fit-content;
+}
+
+.bookForm_close:hover {
+    cursor: pointer;
+    color: #33272a;
+}
+
+label {
+    font-size: 2.5rem;
+    position: relative;
+}
+
+input {
+    display: block;
+    padding: .75rem;
+    margin: 1rem 0;
+    width: 40rem;
+    border: solid 1px rgba(65, 65, 65, 0.3);
+    font-family: 'Roboto Mono',
+        monospace;
+}
+
+input:focus {
+    outline: 0;
+}
+
+select {
+    display: block;
+    padding: .75rem;
+    margin: 1rem 0;
+    width: 40rem;
+    border: solid 1px rgba(65, 65, 65, 0.3);
+    outline: 0;
+    background-color: inherit;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.bookForm_submit {
+    grid-area: auto;
+    justify-self: left;
+    margin: 1rem 0;
+}
