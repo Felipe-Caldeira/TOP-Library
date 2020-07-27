@@ -94,7 +94,7 @@ button:focus {
     position: absolute;
     right: 0;
     padding: 0 !important;
-    margin: 1rem 2rem;
+    margin: 1rem 3rem;
 }
 
 .trashIcon svg {
