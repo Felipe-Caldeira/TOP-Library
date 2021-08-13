@@ -116,7 +116,7 @@ function start() {
 
     // Book form submit listener
     document.querySelector(".bookForm").addEventListener('submit', e => {
-        event.preventDefault();
+        e.preventDefault();
         submitForm();
     })
 
