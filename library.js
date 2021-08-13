@@ -1,6 +1,8 @@
-let myLibrary = localStorage.getObj("myLibrary").map(book => {
+// Attempt to load library from localStorage
+let myLibrary = localStorage.getObj("myLibrary")
+myLibrary = myLibrary ? myLibrary.map(book => {
     return new Book(book.title, book.author, book.pages, book.readStatus);
-}) || [];
+}) : [];
 
 // Book object and method
 function Book(title, author, pages, readStatus) {
